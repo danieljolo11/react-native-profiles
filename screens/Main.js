@@ -3,38 +3,20 @@ import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableWithoutFeedback
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialIcon from "react-native-vector-icons/MaterialIcons"
 import Slider from '@react-native-community/slider';
-import TrackPlayer, { usePlaybackState, useProgress } from "react-native-track-player";
+// import TrackPlayer, { usePlaybackState, useProgress } from "react-native-track-player";
 
 const { height, width } = Dimensions.get('window');
 
-const setUpPlayer = async () => {
+// const setUpPlayer = async () => {
 
-}
+// }
 
 export default function Main() {
   const [pauseBtn, setPauseBtn] = useState(false)
 
-  const DATA = [
-    {
-      id: 0,
-      title: `'You're beautiful`,
-      singer: 'James Blunt',
-    },
-    {
-      id: 1,
-      title: 'Breakaway',
-      singer: 'Avril Lavigne',
-    },
-    {
-      id: 2,
-      title: `What's My Name`,
-      singer: 'Rihanna ft. Drake',
-    },
-  ];
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={[StyleSheet.absoluteFillObject, { backgroundColor: "#fff" }]} />
+      {/* <View style={[StyleSheet.absoluteFillObject, { backgroundColor: "#fff" }]} /> */}
       <View style={styles.container}>
         {/* Music Image */}
         <Image style={styles.musicimage} source={require("../assets/Image-1.jpeg")} />
@@ -69,22 +51,6 @@ export default function Main() {
           </TouchableWithoutFeedback>
           <MaterialIcon name="skip-next" size={height * 0.04} />
         </View>
-        {/* Other Songs */}
-        <View style={styles.othermusic}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={DATA}
-            renderItem={({ item }) => {
-              return (
-                <View style={{ marginVertical: 5 }}>
-                  <Text>{item.title}</Text>
-                  <Text>{item.singer}</Text>
-                </View>
-              )
-            }}
-            keyExtractor={item => item.id}
-          />
-        </View>
       </View>
     </SafeAreaView>
   );
@@ -92,9 +58,10 @@ export default function Main() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    paddingVertical: height * 0.04,
+    paddingVertical: height * 0.06,
     height: height * 0.9,
   },
   musicimage: {
@@ -115,11 +82,4 @@ const styles = StyleSheet.create({
     color: "#2D2727",
     lineHeight: 20,
   },
-  othermusic: {
-    height: height * 0.198,
-    width: width,
-    paddingHorizontal: width * 0.05,
-    paddingVertical: height * 0.01
-  }
-
 });

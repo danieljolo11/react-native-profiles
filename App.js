@@ -8,9 +8,7 @@ import Main from "./screens/Main";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <View>
-        <Main />
-      </View>
+      <Main />
       {/* <NavigationContainer>
         <StackNavigator />
       </NavigationContainer> */}
